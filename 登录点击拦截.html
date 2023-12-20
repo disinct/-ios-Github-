@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>点击进入首页</title>
+    <style>
+        a{
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="f1()" style="margin-left: 35%;"><a href="./index.html">点击进入index首页</a></button>
+    <p id="clock" align="center"></p>
+
+    <script> /*点击弹出窗口事件*/
+        var a=5;
+        console.log(a);
+        f1(); /*函数的调用*/ 
+        /*下边是定义了一个函数*/
+      function f1(){　　　
+         alert("欢迎进入Github的世界");　
+      }
+    
+    var f2=function(n){   /* 函数的定义 --写函数一定要调用 */
+        return parseInt(n)==n;
+    }
+    console.log(f2(2));  /*调用函数格式*/
+
+    var f3=()=>{  /*箭头函数 作用跟上边function一样 只是格式不同*/
+    var a=b=7;    /*a是局部变量，b是全局变量*/
+    console.log(a,b); /*局部变量 在函数内起作用*/
+    }
+
+    f3();
+    console.log(a,b);  /*全局变量 在函数外起作用*/
+    </script>
+    <!--以下是时钟js特效-->
+    <script>
+      function updateClock() {   /*定义一个名为updateClock的函数，这个函数用于更新时钟*/
+  var now = new Date();          /*创建一个新的Date对象，表示当前的日期和时间*/
+  var hours = now.getHours();    /*获取当前的小时数*/
+  var minutes = now.getMinutes();  /*获取当前的分钟数*/
+  var seconds = now.getSeconds();  /*获取当前的秒数*/
+  if (hours < 10) hours = "0" + hours;  /*如果小时数小于10，就在小时数前面加上一个"0"，以确保小时数始终有两位数字*/
+  if (minutes < 10) minutes = "0" + minutes;  /*如果分钟数小于10，就在分钟数前面加上一个"0"，以确保分钟数始终有两位数字*/
+  if (seconds < 10) seconds = "0" + seconds;  /*如果秒数小于10，就在秒数前面加上一个"0"，以确保秒数始终有两位数字*/
+  document.getElementById("clock").textContent = hours + ":" + minutes + ":" + seconds; /*找到ID为"clock"的元素，并将其文本内容设置为当前的时间，时间的格式为"小时:分钟:秒"*/
+}
+
+setInterval(updateClock, 1000); /*每隔1000毫秒（即1秒）就调用一次updateClock函数，以更新时钟*/
+updateClock(); /*立即调用一次updateClock函数，以便在页面加载时就显示当前的时间*/
+ </script>
+    
+</body>
+</html>

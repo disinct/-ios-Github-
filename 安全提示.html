@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>安全认证页面</title>
+<style>
+img{
+    padding-left: 45%;
+    width:88px;
+}
+div{
+    padding-top: 200px;
+}
+
+.fonsize{
+    padding-left: 15%;
+}
+.fonsize1{
+  padding-left: 19%;
+}
+.fonsize2{
+    padding-left: 22%;
+}
+</style>    
+</head>
+<body>
+    <div>
+        <img src="./font/github-2/icon/GitHub.png" alt="image图像消失">
+        <hr color="#cccccc" width="500">
+        <p class="fonsize"><strong>您好</strong> 系统检测到您目前使用的iP与上次登录的iP地点不一致</p>
+        <p class="fonsize1">GitHub怀疑机器人或是陌生设备登录您的账号？</p>
+        <p class="fonsize2">若是您本人操作 请根据下面的内容进行认证</p>
+    </div>
+    <form style="padding-left: 30%;">
+        <input type="text" placeholder="请输入“Github”文字" required>
+        <input type="submit" href="./登录点击拦截.html">
+    </form>
+    <script>
+      //获取输入框和提交按钮的元素
+    var input = document.querySelector("input[type='text']");  /*document.queryselector 是指 用过css选择器选选文档中的第一个匹配元素*/
+    var submit = document.querySelector("input[type='submit']");
+
+    //给提交按钮添加点击事件
+    submit.addEventListener("click", function(event) {   /*addEventListener 用于将指定的监听器注册到事件标上*/
+    //阻止表单的默认提交行为
+    event.preventDefault(); /*指如果此事件没有被显示处理，它默认的动作也不应该照常执行*/
+    //获取输入框的值
+    var value = input.value;   /*用于将输入元素（通常是一个表单输入字段）的值存储在一个变量中 其中value是变量的名称 var是关键字 */
+    //判断输入框的值是否是Github
+    if (value === "Github") {    /*如果 value 相等于Github字符串那么则成立*/
+    //认证成功，跳转到主页
+    window.location.href = "./登录点击拦截.html"; /* window.location表示当前页面的 URL 地址  href是window.location的对象的一个属性  相当于给设置了一个a链接*/
+  } else {
+    //认证失败，弹出提示框
+    alert("认证失败，请输入正确的文字");
+  }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+    <style>
+     ul,h3,p,body{
+        padding: 0;
+        margin: 0;
+     }
+     img{
+        display: block;
+        border: none;
+     }
+     ul{
+        list-style: none;
+     }  
+     .jlist{
+        display: flex;
+        flex-wrap: wrap;
+     }
+     .jlist>li{
+       width: 40%;
+       margin: 4px;
+       flex-grow: 1;/*剩余空间沾满*/
+       font-size: 14px;
+       text-align: center;
+     } 
+     .jlist div:first-child{
+     position: relative;
+     }
+     .jlist img{
+      width: 100%;
+     }
+    .type{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      background-color: rgb(0, 157, 255);
+      font-size: 12px;
+      padding: 5px 15px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    .time{
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+      line-height: 26px;
+      color: #000000;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .jlist h3{
+      line-height: 18px;
+      color: #333;
+    }
+    .jlist p{
+      line-height:18px;
+      color: #666;
+    }
+    a{
+      color: #25a1ed;
+      text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+  <div style="padding-top: 5%;padding-left: 2%;">
+    <a href="index.html"><svg t="1701332481931" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1458" width="16" height="16"><path d="M532.526499 904.817574L139.506311 511.797385 532.526499 118.777197c12.258185-12.258185 12.432147-32.892131-0.187265-45.51052-12.707416-12.707416-32.995485-12.703323-45.511543-0.187265L75.166957 484.739123c-7.120165 7.120165-10.163477 17.065677-8.990768 26.624381-1.500167 9.755178 1.5104 20.010753 8.990768 27.491121l411.660734 411.660734c12.258185 12.258185 32.892131 12.432147 45.511543-0.187265 12.707416-12.707416 12.7023-32.995485 0.187265-45.51052z" p-id="1459" fill="#1296db"></path></svg>主页</a>
+   </div> 
+
+    <ul class="jlist">
+        <li>
+        <div>
+            <a href="#">
+                <img src="./image/apple-logo-og.png" alt="" width="300">
+            </a>
+            <span class="type">自制</span>
+            <span class="time">9:22:30</span>
+        </div>
+        <h3>标题</h3>
+        <p>这是内容</p>    
+    </li>
+    <li>
+        <div>
+            <a href="#">
+                <img src="./image/google.png" alt="" width="300">
+            </a>
+            <span class="type">自制</span>
+            <span class="time">9:22:30</span>
+        </div>
+        <h3>标题</h3>
+        <p>这是内容</p>    
+    </li>
+    <li>
+        <div>
+            <a href="#">
+                <img src="./image/wr.png" alt="" width="300">
+            </a>
+            <span class="type">自制</span>
+            <span class="time">9:22:30</span>
+        </div>
+        <h3>标题</h3>
+        <p>这是内容</p>    
+    </li>
+    <li>
+        <div>
+            <a href="#">
+                <img src="./image/github.png" alt="" width="300">
+            </a>
+            <span class="type">自制</span>
+            <span class="time">9:22:30</span>
+        </div>
+        <h3>标题</h3>
+        <p>这是内容</p>    
+    </li>   
+    </ul>
+    <!--分割线-->
+    <script>
+     var  json=[
+       {
+         link:"http://www.apple.com.cn",
+         img:"./image/apple-logo-og.png",
+         type:"电子产品",
+         time:"2023-12-16",
+         title:"Apple 中国大陆",
+         content:"新款iPhone15Pro 开售中"
+       },
+       {
+         link:"http://www.google.cn",
+         img:"./image/google.png",
+         type:"搜索引擎",
+         time:"2023-12-16",
+         title:"Google",
+         content:"一个404的网站"
+       },
+       {
+         link:"http://www.bing.com",
+         img:"./image/wr.png",
+         type:"操作系统 搜索引擎",
+         time:"2023-12-16",
+         title:"Microsoft",
+         content:"最新的Windows11"
+       },
+       {
+         link:"http://www.github.com",
+         img:"./image/github.png",
+         type:"代码管理器",
+         time:"2023-12-16",
+         title:"Github",
+         content:"代码神器"
+       },
+   ];
+      //把json数据变成上图下文，在网页中显示出来
+      var jlist=document.querySelector(".jlist");
+      for(var v of json){
+            //创建节点
+            var nli=document.createElement("li");
+            //填充内容
+            nli.innerHTML=` 
+            <div>
+            <a href="${v.link}">
+                <img src="${v.img}" width="300">
+            </a>
+            <span class="type">${v.type}</span>
+            <span class="time">${v.time}</span>
+             </div>
+              <h3>${v.title}</h3>
+             <p>${v.content}</p>    
+            
+            `;
+            //把节点放到ul里面
+            jlist.appendChild(nli);
+      }    
+    
+    
+    </script>
+</body>
+</html>
